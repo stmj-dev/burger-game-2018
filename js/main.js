@@ -1,4 +1,4 @@
-// initialize variable
+// initialize letiable
 let num = 100;
 let price = 0;
 let list = [];
@@ -7,18 +7,56 @@ $(document).ready(function(){
 	$("img#2").parent(".slide").css("display", "block").addClass("act");
 	$("table#detail").html("<tr>");
 	$("table#detail").find("tr").text(item());
-	var topp = "<img src='img/bread-top.png'>";
-	var bott = "<img src='img/bread-bottom.png'>";
-	$("#order").html(bott+topp);
-	// $(".slide").click(function(){
-	// 	var src = $(this).find("img").attr("src");
-	// 	var data = $("#order").html();
-	// 	var im = "<img src='"+src+"'>";
-	// 	$("#order").html(data+im);
-	// }).promise().done(function(){
-	// 	var rw = $("#order").html();
-	// 	$("#order").html(rw+topp);
-	// });
+	let topp = "<img src='img/bread-top.png'>";
+	let bott = "<img src='img/bread-bottom.png'>";
+	// $("#order").html(bott+topp);
+
+	let total = $('#total');
+	let table = $('#detail');
+	let target = $("#order");
+	
+	$(".slide").click(function(){
+		num = num + 1;
+		let src = $(this).find("img").attr("src");
+		let total = $('#total');
+		let detail = $('#detail');
+		let target = $("#order");
+		let id = $(this).find("img").attr("id");
+
+		list.push({id: num,pesanan: id});
+
+
+		target.empty();
+		total.empty();
+		table.empty();
+		price = 0;
+
+		target.append(bott);
+
+		list.forEach((key) => {
+			let src = $('#'+key.pesanan)[0].src;
+
+			let img = '<img src="'+src+'" id="'+key.id+'" ondragstart="drag(event)" draggable="true" data-pesanan="'+key.pesanan+'">';
+
+			let dataItem = getItem(key.pesanan);
+			price = price +dataItem.cost;
+
+			let tr = "<tr><td>"+dataItem.name+"</td><td>$"+dataItem.cost+"</td></tr>";
+
+			table.append(tr);
+
+			target.append(img);
+		});
+
+		let trtotal = "<tr><td>Total</td><td>$"+price+"</td></tr>";
+
+		total.append(trtotal);
+		target.append(topp);
+
+	}).promise().done(function(){
+		// let rw = $("#order").html();
+		$("#order").html(bott+topp);
+	});
 	
 });
 
@@ -111,6 +149,7 @@ function orderC(){
 
 
 function drag(ev){
+
 	ev.dataTransfer.setData('id',ev.target.id);
 }
 
@@ -121,8 +160,8 @@ function drop(ev){
 	let target = $('#order');
 	let table = $('#detail');
 
-	var topp = "<img src='img/bread-top.png'>";
-	var bott = "<img src='img/bread-bottom.png'>";
+	let topp = "<img src='img/bread-top.png'>";
+	let bott = "<img src='img/bread-bottom.png'>";
 
 	let id = ev.dataTransfer.getData('id');
 
@@ -165,8 +204,8 @@ function deleteItem(ev){
 	let total = $('#total');
 	let table = $('#detail');
 
-	var topp = "<img src='img/bread-top.png'>";
-	var bott = "<img src='img/bread-bottom.png'>";
+	let topp = "<img src='img/bread-top.png'>";
+	let bott = "<img src='img/bread-bottom.png'>";
 
 	let id = ev.dataTransfer.getData('id');
 	let barang = document.getElementById(id);
