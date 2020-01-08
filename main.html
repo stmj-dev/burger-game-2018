@@ -1,0 +1,101 @@
+<html>
+	<head>
+	 	<meta name="viewport" content="width=device-width, initial-scale=1" />  
+   		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+   		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta charset="UTF-8" />
+		<title>Burgerr - Your Delicious Burger</title>
+		<link href="css/simple-grid.min.css" rel="stylesheet" media="screen" />
+		<link href="css/stylesheet.css" rel="stylesheet" media="screen" />
+		<script src="js/jquery-3.2.1.min.js"></script>
+		<script src="js/item.js"></script>
+		<script src="js/main.js"></script>
+	</head>
+	
+	<body>
+		<header>
+			<div class="container">
+				<div class="col-6">
+					<div class="col-12"><a href="./main.html" class="logo">BURGERR</a></div>
+					<div class="sub-logo col-12">Your Delicious Burger</div>
+				</div>
+			</div>
+		</header>
+
+		<div class="container">
+			<div class="row">
+
+				<div class="col-6">
+					<div id="control">
+
+						<div class="col-12">
+							<button onClick="reset()">RESET</button>
+							<div id="trash" ondrop="deleteItem(event)" ondragover="return event.preventDefault()"> 
+								<p>DRAG HERE TO RETURN</p>
+							</div>
+						</div>
+
+						<div class="col-12">
+							<div>Drag your burger bellow</div>
+							<button onClick="orderC()">ORDER</button> 
+							<div id="order" onDrop="drop(event)" ondragover="event.preventDefault()"></div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="col-6">
+
+					<div id="item" class="col-12">
+						<div class="row">
+							<a class="prev" onclick="prev()">&#10094;</a>
+		 					<a class="next" onclick="next()">&#10095;</a>
+		 				</div>
+
+						<div class="slide"> 
+							<div class="desc">Vegetable - $0.5</div>
+							<img src="img/vegetable.png" data-class="2" ondragstart="drag(event)" id="2"> 
+						</div>
+						<div class="slide"> 
+							<div class="desc">Beef - $5</div>
+							<img src="img/beef.png" data-class="3" ondragstart="drag(event)" id="3"> 
+						</div>
+						<div class="slide"> 
+							<div class="desc">Egg - $2</div>
+							<img src="img/egg.png" data-class="4" ondragstart="drag(event)" id="4"> 
+						</div>
+						<div class="slide"> 
+							<div class="desc">Tomato - $1</div>
+							<img src="img/tomato.png" data-class="5" ondragstart="drag(event)" id="5"> 
+						</div>
+						<div class="slide"> 
+							<div class="desc">Cheese - $2</div>
+							<img src="img/cheese.png" data-class="6" ondragstart="drag(event)" id="6"> 
+						</div>
+						<div class="slide"> 
+							<div class="desc">Onion - $1</div>
+							<img src="img/onion.png" data-class="7" ondragstart="drag(event)" id="7"> 
+						</div>
+						<div class="slide"> 
+							<div class="desc">Pikle - $1</div>
+							<img src="img/pickle.png" data-class="8" ondragstart="drag(event)" id="8"> 
+						</div>
+					</div>
+					<div id="rect"></div>
+					<div class="col-12"> 
+						<div class="det">Detail Order</div>
+						<div id="table-detail"> 
+							<table id="detail"></table>
+						</div>
+						<div><table id="total"></table></div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<footer>
+
+		</footer>
+	</body>
+</html>
