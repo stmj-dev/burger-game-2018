@@ -102,7 +102,7 @@ function orderC(){
 	// console.log(uwu);
 	// uwu = uwu.replace('index.html','order.html');
 	window.localStorage.setItem('list',JSON.stringify(list));
-	window.location.href = uwu+"/order.html";
+	window.location.href = uwu+"order.html";
 	// console.log(uwu);
 }
 
