@@ -99,10 +99,10 @@ function next(){
 
 function orderC(){
 	let uwu = window.location.href;
-	console.log(uwu);
-	uwu = uwu.replace('index.html','order.html');
+	// console.log(uwu);
+	// uwu = uwu.replace('index.html','order.html');
 	window.localStorage.setItem('list',JSON.stringify(list));
-	window.location.href = uwu;
+	window.location.href = uwu+"/order.html";
 	// console.log(uwu);
 }
 
