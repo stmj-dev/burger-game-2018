@@ -22,13 +22,13 @@ list.forEach((key) => {
 	let data = getItem(key.pesanan);
 	console.log(data);
 	price = price + data.cost;
-	let tr = "<tr><td>"+data.name+"</td><td>"+data.cost+"</td></tr>";
+	let tr = "<tr><td>"+data.name+"</td><td>$"+data.cost+"</td></tr>";
 
 	detail.innerHTML += tr;
 	// console.log(detail);
 });
 
-let trtotal = "<tr><td>Total</td><td>"+price+"</td></tr>";
+let trtotal = "<tr><td>Total</td><td>$"+price+"</td></tr>";
 
 
 total.innerHTML = trtotal;
