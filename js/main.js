@@ -99,7 +99,7 @@ function next(){
 
 function orderC(){
 	let uwu = window.location.href;
-	uwu = uwu.replace('main.html','order.html');
+	uwu = uwu.replace('index.html','order.html');
 	window.localStorage.setItem('list',JSON.stringify(list));
 	window.location.href = uwu;
 	// console.log(uwu);
